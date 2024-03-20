@@ -9,7 +9,7 @@ pipeline {
                 echo "Building Docker Image Logging in to Docker Hub & Pushing the Image" 
                 script {
                     def app = docker.build("fardin31/dev:v1")
-                    docker.withRegistry('https://registry.hub.docker.com/fardin31/dev', 'dev_dh_creds') {
+                    docker.withRegistry('https://registry.hub.docker.com/fardin31/dev', 'dev_dh_cred') {
                     app.push()
                     }
                 }
@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/fardin31/dev', 'dev_dh_creds') {
+                    docker.withRegistry('https://registry.hub.docker.com/fardin31/dev', 'dev_dh_cred') {
                     docker.image("fardin31/dev:v1").pull()
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
                 sh 'echo Taggig Docker image from Dev to QA'
                 sh "docker tag fardin31/dev:v1  fardin31/qa:v1" 
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/fardin31/qa', 'qa_dh_creds') {
+                    docker.withRegistry('https://registry.hub.docker.com/fardin31/qa', 'qa_dh_cred') {
                     docker.image("fardin31/qa:v1").push()
                     }
                 }
@@ -45,7 +45,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/fardin31/qa', 'qa_dh_creds') {
+                    docker.withRegistry('https://registry.hub.docker.com/fardin31/qa', 'qa_dh_cred') {
                     docker.image("fardin31/qa:v1").pull()
                     }
                 }
