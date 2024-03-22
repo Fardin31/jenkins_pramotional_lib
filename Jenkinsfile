@@ -1,4 +1,4 @@
-@Library("cedex_shared_lib@release") _
+@Library("cedex_shared_lib@main") _
 
 DockerDeliveryPromotionPipelineK8SDeploy{
 
