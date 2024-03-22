@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 def call(body) {
     def config = [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
+=======
+<<<<<<< HEAD
+>>>>>>> dev
 pipeline {
     agent any
 
@@ -208,3 +212,15 @@ def deployOnK8s(String KUBE_CONFIG, String ACCOUNT, String COMMIT) {
         }
     }
 }
+<<<<<<< HEAD
+=======
+=======
+@Library("cedex_shared_lib@main") _
+ Shared_lib_k8s_deploy
+
+DockerDeliveryPromotionPipelineK8SDeploy{
+
+platform = "docker_shared_lib"
+
+}
+ dev
