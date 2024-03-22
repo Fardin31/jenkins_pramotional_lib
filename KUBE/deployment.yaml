@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-nginx
+  template:
+    metadata:
+      labels:
+        app: jenkins-nginx
+    spec:
+      containers:
+      - name: example-nginx
+        image: fardin31/{{ACCOUNT}}:{{COMMITID}}
+        ports:
+        - containerPort: 80
